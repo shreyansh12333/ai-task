@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Business Audit Report</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        line-height: 1.6;
+        color: #222;
+        background-color: #ffffff;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #111827;
+      }
+
+      h2 {
+        margin-top: 35px;
+        border-bottom: 2px solid #dddddd;
+        padding-bottom: 10px;
+        color: #1f2937;
+      }
+
+      .card {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 15px;
+      }
+
+      .score {
+        font-size: 40px;
+        font-weight: bold;
+        color: #2563eb;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+
+      strong {
+        color: #111827;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Business Audit Report</h1>
+
+    <h2>Executive Summary</h2>
+    <p>{{ executive_summary }}</p>
+
+    <h2>Company Overview</h2>
+
+    <div class="card">
+      <p>
+        <strong>Description:</strong><br />
+        {{ company_overview.description }}
+      </p>
+
+      <p>
+        <strong>Industry:</strong><br />
+        {{ company_overview.industry }}
+      </p>
+
+      <p>
+        <strong>Business Model:</strong><br />
+        {{ company_overview.business_model }}
+      </p>
+
+      <p>
+        <strong>Target Market:</strong><br />
+        {{ company_overview.target_market }}
+      </p>
+    </div>
+
+    <h2>Strengths</h2>
+
+    <ul>
+      {% for item in strengths %}
+      <li>
+        <strong>{{ item.title }}</strong><br />
+        {{ item.detail }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Opportunities</h2>
+
+    <ul>
+      {% for item in opportunities %}
+      <li>
+        <strong>{{ item.title }}</strong><br />
+        {{ item.detail }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Recommendations</h2>
+
+    <ul>
+      {% for item in recommendations %}
+      <li>
+        <strong>{{ item.title }}</strong><br />
+        {{ item.detail }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Market Positioning</h2>
+
+    <p>{{ market_positioning }}</p>
+
+    <h2>Audit Score</h2>
+
+    <div class="card">
+      <div class="score">{{ audit_score.overall }}/100</div>
+
+      <p>
+        <strong>Digital Presence:</strong>
+        {{ audit_score.digital_presence }}
+      </p>
+
+      <p>
+        <strong>Market Fit:</strong>
+        {{ audit_score.market_fit }}
+      </p>
+
+      <p>
+        <strong>Growth Potential:</strong>
+        {{ audit_score.growth_potential }}
+      </p>
+
+      <p>
+        <strong>Note:</strong><br />
+        {{ audit_score.note }}
+      </p>
+    </div>
+
+    <h2>Closing Statement</h2>
+
+    <p>{{ closing_statement }}</p>
+  </body>
+</html>
